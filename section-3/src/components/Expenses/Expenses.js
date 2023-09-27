@@ -7,16 +7,14 @@ import ExpensesFilter from "./ExpensesFilter";
 
 function Expenses(props) {
   const [filteredYear, setFilteredYear] = useState('2020');
+
   const filterChangeHandler = selectedYear => {
-    console.log("Expenses.js");
-    
     setFilteredYear(selectedYear);
-    console.log(filteredYear);
   }
   return (
     <div>
     <Card className="expenses">
-    <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
+      <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
       <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}
