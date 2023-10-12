@@ -7,17 +7,17 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Build and Launch Chrome against localhost for section-3 project",
+            "name": "Build and Launch Chrome against localhost for section-7 project",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/section-3/",
-            "preLaunchTask": "start-section-3-dev-server"        // Add prelaunch Task npm: start (defined in tasks.json)
+            "webRoot": "${workspaceFolder}/section-7/",
+            "preLaunchTask": "start-section-7-dev-server"        // Add prelaunch Task npm: start (defined in tasks.json)
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost for section-3 project",
+            "name": "Launch Chrome against localhost for section-7 project",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/section-3/"    // Add prelaunch Task npm: start (defined in tasks.json)
+            "webRoot": "${workspaceFolder}/section-7/"    // Add prelaunch Task npm: start (defined in tasks.json)
         },
     ]
 }
