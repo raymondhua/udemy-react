@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CalculatedItem = props => {
+function CalculatedItem (props) {
     return (
     <tr>
         <td>YEAR NUMBER</td>
