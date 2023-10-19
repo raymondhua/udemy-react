@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import styles from './Input.module.css';
+import styles from "./Input.module.css";
 
-const Input = props => {
+const Input = (props) => {
   return (
-    <input className={`${styles[props.className]}`} type={props.className} value={props.value} onChange={props.onChange} id={props.id}>
-    {props.childern}
-    </input>
+    <input
+      className={`${styles[props.className]}`}
+      type={props.type}
+      value={props.value}
+      onChange={props.onChange}
+      id={props.id}
+    />
   );
 };
 export default Input;
+ 
