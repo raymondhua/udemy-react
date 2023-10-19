@@ -2,6 +2,7 @@ import React from 'react';
 import CalculatedItem from './CalculatedItem';
 import CalculatedHeader from './CalculatedHeader';
 
+
 const CalculatedTable = props => {
     if (props.items.length === 0){
         return <p className='centreAligned'>No investment calculated yet.</p>
@@ -11,8 +12,15 @@ const CalculatedTable = props => {
         <table className="result">
         <CalculatedHeader />
         <tbody>
-        {props.items.map((yearData) => (<CalculatedItem />))}
-        <CalculatedItem />
+        {props.items.map((yearData) => (
+        <CalculatedItem 
+            key={yearData.year} 
+            year={yearData.year} 
+            savingsEndOfYear={yearData.savingsEndOfYear}
+            yearlyInterest={yearData.yearlyInterest}
+            totalInterest={yearData.totalInterest} 
+            investedCapitol={yearData.investedCapitol}
+        />))}
         </tbody>
         </table>
     )

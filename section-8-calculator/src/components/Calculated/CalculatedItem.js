@@ -1,13 +1,18 @@
 import React from 'react';
 
 function CalculatedItem (props) {
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      });
+
     return (
     <tr>
-        <td>YEAR NUMBER</td>
-        <td>TOTAL SAVINGS END OF YEAR</td>
-        <td>INTEREST GAINED IN YEAR</td>
-        <td>TOTAL INTEREST GAINED</td>
-        <td>TOTAL INVESTED CAPITAL</td>
+        <td>{props.year}</td>
+        <td>{formatter.format(props.savingsEndOfYear)}</td>
+        <td>{formatter.format(props.yearlyInterest)}</td>
+        <td>{formatter.format(props.totalInterest)}</td>
+        <td>{formatter.format(props.investedCapitol)}</td>
     </tr>
     )
 }
