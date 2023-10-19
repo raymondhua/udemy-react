@@ -6,6 +6,12 @@ import InvestmentForm from './components/Investment/InvestmentForm';
 
 function App() {
   const [calculatedData, setCalculatedData] = useState([]);
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though...
@@ -27,10 +33,10 @@ function App() {
       yearlyData.push({
         // feel free to change the shape of the data pushed to the array!
         year: i + 1,
-        yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        totalInterest: totalInterest,
-        investedCapitol: investedCapitol,
+        yearlyInterest: formatter.format(yearlyInterest),
+        savingsEndOfYear: formatter.format(currentSavings),
+        totalInterest: formatter.format(totalInterest),
+        investedCapitol: formatter.format(investedCapitol),
       });
     }
     return yearlyData;
