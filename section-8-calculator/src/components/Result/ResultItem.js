@@ -1,6 +1,6 @@
 import React from "react";
 
-function CalculatedItem(props) {
+function ResultItem(props) {
   return (
     <tr>
       <td>{props.year}</td>
@@ -12,4 +12,4 @@ function CalculatedItem(props) {
   );
 }
 
-export default CalculatedItem;
+export default ResultItem;

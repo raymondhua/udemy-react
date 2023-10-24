@@ -1,46 +1,43 @@
 import React, { useState } from "react";
-import styles from "./InvestmentForm.module.css";
+import styles from "./UserInput.module.css";
 import Button from "../UI/Button";
 import Label from "../UI/Label";
 import Input from "../UI/Input";
 import InputGroup from "../UI/InputGroup";
 import Actions from "../UI/Actions";
+import CalculateInvestment from "../utils/CalculateInvestment";
 
-const InvestmentForm = (props) => {
-  const [enteredCurrentSavings, setEnteredCurrentSavings] = useState("");
-  const [enteredYearlySavings, setEnteredYearlySavings] = useState("");
-  const [enteredExpectedInterest, setEnteredExpectedInterest] = useState("");
-  const [enteredInvestmentDuration, setEnteredInvestmentDuration] = useState("");
+const UserInput = (props) => {
+  const [userInput, setUserInput] = useState({
+    currentSavings: 0,
+    yearlySavings: 0,
+    expectedInterest: 0,
+    investmentDuration: 0,
+  });
+
   const submitHandler = (event) => {
     event.preventDefault();
-    const investmentData = {
-      currentSavings: enteredCurrentSavings,
-      yearlySavings: enteredYearlySavings,
-      expectedInterest: enteredExpectedInterest,
-      investmentDuration: enteredInvestmentDuration,
-    };
-    props.onSubmitInvestmentForm(investmentData);
+    props.onSubmitUserInput(CalculateInvestment(userInput));
   };
-  const resetHandler = (event) => {
-    props.onResetInvestmentForm();
-    setEnteredCurrentSavings("0");
-    setEnteredYearlySavings("0");
-    setEnteredExpectedInterest("0");
-    setEnteredInvestmentDuration("0");
+  const resetHandler = () => {
+    props.onResetUserInput();
+    setUserInput({
+      currentSavings: 0,
+      yearlySavings: 0,
+      expectedInterest: 0,
+      investmentDuration: 0,
+    });
   };
 
-  const currentSavingsChangeHandler = (event) => {
-    setEnteredCurrentSavings(event.target.value);
+  const handleChange = (inputIdentifier, newValue) => {
+    setUserInput(prevUserInput => {
+      return {
+        ...prevUserInput,
+        [inputIdentifier]: newValue
+      };
+    })
   };
-  const yearlySavingsChangeHandler = (event) => {
-    setEnteredYearlySavings(event.target.value);
-  };
-  const expectedInterestChangeHandler = (event) => {
-    setEnteredExpectedInterest(event.target.value);
-  };
-  const investmentDurationChangeHandler = (event) => {
-    setEnteredInvestmentDuration(event.target.value);
-  };
+
   return (
     <form onSubmit={submitHandler} className={`${styles["form"]}`}>
       <InputGroup>
@@ -51,8 +48,7 @@ const InvestmentForm = (props) => {
           <Input
             className="form"
             type="number"
-            value={enteredCurrentSavings}
-            onChange={currentSavingsChangeHandler}
+            onChange={(event) => handleChange('currentSavings', event.target.value)}
             id="current-savings"
           />
         </p>
@@ -63,8 +59,7 @@ const InvestmentForm = (props) => {
           <Input
             className="form"
             type="number"
-            value={enteredYearlySavings}
-            onChange={yearlySavingsChangeHandler}
+            onChange={(event) => handleChange('yearlySavings', event.target.value)}
             id="yearly-contribution"
           />
         </p>
@@ -77,8 +72,7 @@ const InvestmentForm = (props) => {
           <Input
             className="form"
             type="number"
-            value={enteredExpectedInterest}
-            onChange={expectedInterestChangeHandler}
+            onChange={(event) => handleChange('expectedInterest', event.target.value)}
             id="expected-return"
           />
         </p>
@@ -89,8 +83,7 @@ const InvestmentForm = (props) => {
           <Input
             className="form"
             type="number"
-            value={enteredInvestmentDuration}
-            onChange={investmentDurationChangeHandler}
+            onChange={(event) => handleChange('investmentDuration', event.target.value)}
             id="duration"
           />
         </p>
@@ -107,4 +100,4 @@ const InvestmentForm = (props) => {
   );
 };
 
-export default InvestmentForm;
+export default UserInput;

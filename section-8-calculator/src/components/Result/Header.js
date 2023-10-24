@@ -1,6 +1,6 @@
 import React from "react";
 
-const CalculatedHeader = () => {
+const Header = () => {
   return (
     <thead>
       <tr>
@@ -14,4 +14,4 @@ const CalculatedHeader = () => {
   );
 };
 
-export default CalculatedHeader;
+export default Header;

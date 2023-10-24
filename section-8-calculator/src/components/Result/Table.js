@@ -1,7 +1,7 @@
 import React from "react";
-import CalculatedItem from "./CalculatedItem";
-import CalculatedHeader from "./CalculatedHeader";
-import styles from "./CalculatedTable.module.css";
+import ResultItem from "./ResultItem";
+import Header from "./Header";
+import styles from "./Table.module.css";
 
 const CalculatedTable = (props) => {
   if (props.items.length === 0) {
@@ -14,10 +14,10 @@ const CalculatedTable = (props) => {
 
   return (
     <table className={`${styles["result"]}`}>
-      <CalculatedHeader />
+      <Header />
       <tbody>
         {props.items.map((yearData) => (
-          <CalculatedItem
+          <ResultItem
             key={yearData.year}
             year={yearData.year}
             savingsEndOfYear={yearData.savingsEndOfYear}
