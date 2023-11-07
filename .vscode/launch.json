@@ -8,16 +8,16 @@
             "type": "chrome",
             "request": "launch",
             "name": "Build and Launch Chrome against localhost for section-8 project",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/section-8-calculator",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/section-8",
             "preLaunchTask": "start-section-8-dev-server"        // Add prelaunch Task npm: start (defined in tasks.json)
         },
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Launch Chrome against localhost for section-8/calculator project",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/section-8-calculator/"    // Add prelaunch Task npm: start (defined in tasks.json)
+            "name": "Launch Chrome against localhost for section-8 project",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}/section-8/"    // Add prelaunch Task npm: start (defined in tasks.json)
         },
     ]
 }
