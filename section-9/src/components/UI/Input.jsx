@@ -3,14 +3,14 @@ import React from "react";
 export default function Input({label, textArea, ...props}) {
 
   return (
-    <div>
+    <div className="pb-3">
         <p>
-        <label>{label}</label>
+        <label className="font-medium">{label}:</label>
         <br />
         {!textArea ?
 
-        <input className="w-full" {...props} /> :
-        <textarea className="w-full"{...props} />
+        <input className="w-full h-9" {...props} /> :
+        <textarea className="w-full h-20"{...props} />
 
         }
         </p>
