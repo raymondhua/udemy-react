@@ -1,20 +1,16 @@
-import React, {useRef, forwardRef, useImperativeHandle} from "react";
+import React, {useRef, forwardRef, useState} from "react";
 
-const Input = forwardRef(function Input({label, textArea, ...props}, ref) {
-
+const Input = forwardRef(function Input({label, textArea, valid, ...props}, ref) {
   return (
 
     <div className="pb-3">
-        <p>
         <label className="font-medium">{label}:</label>
         <br />
         {!textArea ?
-
-        <input className="w-full h-9"  {...props} ref={ref}/> :
-        <textarea className="w-full h-20" {...props} ref={ref}/>
-
+          <input className="w-full h-9 " {...props} ref={ref}/> :
+          <textarea className="w-full h-20" {...props} ref={ref}/>
         }
-        </p>
+        {!valid && <p className="text-pink-600 text-xs">Please enter a valid {label.toLowerCase()}!</p>}
     </div>
   );
 });
